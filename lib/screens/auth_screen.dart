@@ -21,26 +21,32 @@ class _AuthScreenState extends State<AuthScreen> {
     try {
       if (isLogin) {
         authResult = await _auth.signInWithEmailAndPassword(
-            email: email, password: password);
+          email: email,
+          password: password,
+        );
       } else {
         authResult = await _auth.createUserWithEmailAndPassword(
-            email: email, password: password);
+          email: email,
+          password: password,
+        );
         await FirebaseFirestore.instance
             .collection('users')
-            .doc(authResult.user!.uid)
+            .doc(authResult.user?.uid)
             .set({'username': username, 'email': email});
       }
-    } on PlatformException catch (e) {
+    } on FirebaseAuthException catch (e) {
       var message = 'An error occured, please check credentials!';
 
       if (e.message != null) {
         message = e.message!;
       }
 
-      ScaffoldMessenger.of(ctx).showSnackBar(SnackBar(
-        content: Text(message),
-        backgroundColor: Theme.of(ctx).errorColor,
-      ));
+      ScaffoldMessenger.of(ctx).showSnackBar(
+        SnackBar(
+          content: Text(message),
+          backgroundColor: Theme.of(ctx).errorColor,
+        ),
+      );
     } catch (err) {
       print(err);
     }

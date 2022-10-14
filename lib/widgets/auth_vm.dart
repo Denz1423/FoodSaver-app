@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class AuthVM extends StatefulWidget {
-  AuthVM(this.submitForm);
+  AuthVM(
+    this.submitForm,
+  );
 
   final void Function(String email, String password, String userName,
       bool isLogin, BuildContext ctx) submitForm;
@@ -23,7 +25,7 @@ class _AuthVMState extends State<AuthVM> {
         .unfocus(); //Close keyboard after submit button pressed
 
     if (isValid) {
-      _formKey.currentState!.save();
+      _formKey.currentState?.save();
       widget.submitForm(_userEmail.trim(), _userPassword.trim(),
           _userName.trim(), _isLogin, context);
     }
@@ -44,6 +46,9 @@ class _AuthVMState extends State<AuthVM> {
               children: [
                 TextFormField(
                   key: const ValueKey('email'),
+                  autocorrect: false,
+                  textCapitalization: TextCapitalization.none,
+                  enableSuggestions: false,
                   validator: (email) {
                     if (email!.isEmpty || !email.contains('@')) {
                       return 'Please enter a valid email address!';
@@ -51,14 +56,19 @@ class _AuthVMState extends State<AuthVM> {
                     return null;
                   },
                   keyboardType: TextInputType.emailAddress,
-                  decoration: InputDecoration(labelText: 'Email'),
+                  decoration: InputDecoration(
+                    labelText: 'Email',
+                  ),
                   onSaved: (emailValue) {
-                    _userEmail = emailValue!;
+                    _userEmail = emailValue as String;
                   },
                 ),
                 if (!_isLogin)
                   TextFormField(
                     key: const ValueKey('username'),
+                    autocorrect: true,
+                    textCapitalization: TextCapitalization.words,
+                    enableSuggestions: false,
                     validator: (username) {
                       if (username!.isEmpty || username.length < 3) {
                         return 'Username must be at least 3 characters long!';
@@ -67,7 +77,7 @@ class _AuthVMState extends State<AuthVM> {
                     },
                     decoration: InputDecoration(labelText: 'Username'),
                     onSaved: (nameValue) {
-                      _userName = nameValue!;
+                      _userName = nameValue as String;
                     },
                   ),
                 TextFormField(
@@ -81,7 +91,7 @@ class _AuthVMState extends State<AuthVM> {
                   decoration: InputDecoration(labelText: 'Password'),
                   obscureText: true,
                   onSaved: (passwordValue) {
-                    _userPassword = passwordValue!;
+                    _userPassword = passwordValue as String;
                   },
                 ),
                 SizedBox(
@@ -89,10 +99,15 @@ class _AuthVMState extends State<AuthVM> {
                 ),
                 ElevatedButton.icon(
                   onPressed: _submit,
-                  icon: Icon(Icons.lock_open, size: 32),
+                  icon: Icon(
+                    Icons.lock_open,
+                    size: 32,
+                  ),
                   label: Text(
                     _isLogin ? "Login" : "SignUp",
-                    style: TextStyle(fontSize: 24),
+                    style: TextStyle(
+                      fontSize: 24,
+                    ),
                   ),
                   style: ElevatedButton.styleFrom(
                     minimumSize: Size.fromHeight(45),
@@ -108,6 +123,7 @@ class _AuthVMState extends State<AuthVM> {
                       style: TextStyle(color: Colors.greenAccent.shade700),
                     ),
                     TextButton(
+                  
                       onPressed: () {
                         setState(() {
                           _isLogin = !_isLogin;
