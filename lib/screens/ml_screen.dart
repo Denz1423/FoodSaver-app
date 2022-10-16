@@ -17,17 +17,12 @@ class _MlScreenState extends State<MlScreen> {
     _pickedImage = pickedImage;
   }
 
-  // void _detectImage() {
-  //   if (_pickedImage == null){
-  //     return;
-  //   }
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("ML-Screen"),
+        titleSpacing: 50,
+        title: const Text("ML-Screen",),
         actions: [
           DropdownButton(
             underline: Container(),
