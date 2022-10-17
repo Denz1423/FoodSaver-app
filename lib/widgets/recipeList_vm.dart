@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../screens/recipe_screen.dart';
+
 class RecipeListVM extends StatelessWidget {
   final String title;
 
@@ -8,6 +10,15 @@ class RecipeListVM extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (ctx) => const RecipeScreen(),
+            settings: RouteSettings(arguments: title),
+          ),
+        );
+      },
       splashColor: Theme.of(context).primaryColor,
       borderRadius: BorderRadius.circular(15),
       child: Container(

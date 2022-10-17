@@ -30,6 +30,14 @@ class RecipeListScreen extends StatelessWidget {
             RecipeListVM(labelTitle),
             RecipeListVM(labelTitle),
             RecipeListVM(labelTitle),
+            RecipeListVM(labelTitle),
+            RecipeListVM(labelTitle),
+            RecipeListVM(labelTitle),
+            RecipeListVM(labelTitle),
+            RecipeListVM(labelTitle),
+            RecipeListVM(labelTitle),
+            RecipeListVM(labelTitle),
+            RecipeListVM(labelTitle),
           ]),
     );
   }

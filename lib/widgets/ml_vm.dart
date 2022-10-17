@@ -5,9 +5,6 @@ import 'package:google_mlkit_image_labeling/google_mlkit_image_labeling.dart';
 import 'package:path_provider/path_provider.dart' as sysPaths;
 
 import '../screens/results_screen.dart';
-// import 'package:path/path.dart' as path;
-
-//start ms-settings:developers
 
 class MlVM extends StatefulWidget {
   final Function onSelectImage;
@@ -51,9 +48,10 @@ class _MlVMState extends State<MlVM> {
     //   sb.write((confidence * 100).toStringAsFixed(2));
     //   sb.write("%\n");
     // }
+    // imageLabel = sb.toString();
 
     imageLabeler.close();
-    // imageLabel = sb.toString();
+
     setState(
       () {
         Navigator.push(
@@ -96,12 +94,6 @@ class _MlVMState extends State<MlVM> {
           const SizedBox(
             height: 20,
           ),
-          // Text(
-          //   imageLabel,
-          //   style: const TextStyle(
-          //     fontSize: 15,
-          //   ),
-          // ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

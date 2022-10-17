@@ -60,8 +60,6 @@ class _MlScreenState extends State<MlScreen> {
         ],
       ),
       body: Column(
-        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        // crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           SingleChildScrollView(
             child: Container(

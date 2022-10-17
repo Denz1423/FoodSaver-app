@@ -7,6 +7,7 @@ import 'package:ml_app/screens/results_screen.dart';
 import './screens/ml_screen.dart';
 import './screens/auth_screen.dart';
 import './screens/results_screen.dart';
+import './screens/recipe_screen.dart';  
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -50,6 +51,7 @@ class MyApp extends StatelessWidget {
             MlScreen.routeName: (ctx) => MlScreen(),
             ResultScreen.routeName: (ctx) => const ResultScreen(),
             RecipeListScreen.routeName: (ctx) => new RecipeListScreen(),
+            RecipeScreen.routeName: (ctx) => RecipeScreen(),
           },
           onUnknownRoute: (settings) {
             return MaterialPageRoute(builder: (context) => MlScreen());
