@@ -1,6 +1,7 @@
-# ML-FoodWaste-app
+![foodsaverlogo](assets/logo_transparent.png)
+# Food Saver app
 
-A machine learning mobile application made to help in reducing food wastage in households.
+The Food Saver app is a machine learning mobile application made to help in reducing food wastage in households.
 
 Machine learning model will identify left-over ingredients. Once the ingredients are recognised, a list of suggested recipes will be shown to help individuals in utilising their existing components. The app can also be used to help in-experience cooks to learn and look up recipes. Furthermore, the app can also be utilised during grocery shopping as individuals can decide on what to cook as well as buy only the necessary components they need. 
 
