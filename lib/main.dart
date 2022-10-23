@@ -7,7 +7,7 @@ import 'package:ml_app/screens/results_screen.dart';
 import './screens/ml_screen.dart';
 import './screens/auth_screen.dart';
 import './screens/results_screen.dart';
-import './screens/recipe_screen.dart';  
+import './screens/recipe_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       builder: (context, appSnapshot) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          title: 'ML-App',
+          title: 'Food Saver',
           theme: ThemeData(
               primarySwatch: Colors.green,
               backgroundColor: Colors.green,
@@ -36,25 +36,27 @@ class MyApp extends StatelessWidget {
               elevatedButtonTheme: ElevatedButtonThemeData(
                 style: ElevatedButton.styleFrom(primary: Colors.green),
               )),
-          home:
-              MlScreen(),
-          //     StreamBuilder(
-          //   stream: FirebaseAuth.instance.authStateChanges(),
-          //   builder: (context, snapshot) {
-          //     if (snapshot.hasData) {
-          //       return MlScreen();
-          //     }
-          //     return AuthScreen();
-          //   },
-          // ),
+          home: 
+          // MlScreen(),
+              StreamBuilder(
+            stream: FirebaseAuth.instance.authStateChanges(),
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                return MlScreen();
+              }
+              return AuthScreen();
+            },
+          ),
           routes: {
             MlScreen.routeName: (ctx) => MlScreen(),
             ResultScreen.routeName: (ctx) => const ResultScreen(),
-            RecipeListScreen.routeName: (ctx) => new RecipeListScreen(),
-            RecipeScreen.routeName: (ctx) => RecipeScreen(),
+            RecipeListScreen.routeName: (ctx) => const RecipeListScreen(),
+            RecipeScreen.routeName: (ctx) => const RecipeScreen(),
           },
           onUnknownRoute: (settings) {
-            return MaterialPageRoute(builder: (context) => MlScreen());
+            return MaterialPageRoute(
+              builder: (context) => MlScreen(),
+            );
           },
         );
       },
