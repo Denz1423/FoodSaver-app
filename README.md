@@ -1,4 +1,4 @@
-<img src="assets/logo_transparent.png" width="150" height="100" />
+<img src="assets/logo_transparent.png" width="300" height="300" />
 # Food Saver app
 
 The Food Saver app is a machine learning mobile application made to help in reducing food wastage in households.
