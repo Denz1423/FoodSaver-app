@@ -51,7 +51,7 @@ class MyApp extends StatelessWidget {
             MlScreen.routeName: (ctx) => MlScreen(),
             ResultScreen.routeName: (ctx) => const ResultScreen(),
             RecipeListScreen.routeName: (ctx) => const RecipeListScreen(),
-            RecipeScreen.routeName: (ctx) => const RecipeScreen(),
+            RecipeScreen.routeName: (ctx) => RecipeScreen(),
           },
           onUnknownRoute: (settings) {
             return MaterialPageRoute(

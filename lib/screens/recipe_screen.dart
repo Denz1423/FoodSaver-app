@@ -3,10 +3,8 @@ import 'package:flutter/material.dart';
 class RecipeScreen extends StatelessWidget {
   static const routeName = '/recipe-screen';
 
-  const RecipeScreen({super.key});
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: const Text("Recipe"),

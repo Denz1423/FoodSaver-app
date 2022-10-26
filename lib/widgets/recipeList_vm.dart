@@ -14,7 +14,7 @@ class RecipeListVM extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (ctx) => const RecipeScreen(),
+            builder: (ctx) => RecipeScreen(),
             settings: RouteSettings(arguments: title),
           ),
         );
